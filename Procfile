@@ -1,1 +1,1 @@
-calistirici python tweetPy.py
+web: python3 tweetPy.py
