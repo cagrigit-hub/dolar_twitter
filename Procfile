@@ -1,1 +1,1 @@
-web: python3 tweetPy.py
+worker: python3 tweetPy.py
