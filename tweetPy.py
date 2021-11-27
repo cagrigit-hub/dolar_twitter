@@ -1,4 +1,4 @@
-
+import time
 import requests
 import tweepy
 import ast
@@ -52,26 +52,30 @@ def connect_to_endpoint(url, params):
 
 
 def main():
+    time.sleep(12)
     url = create_url()
     params = get_params()
     json_response = connect_to_endpoint(url, params)
-    dlr = requests.request("GET","https://api.fastforex.io/fetch-one?from=USD&to=TRY&api_key=c24eed3a02-0f52d1575e-r31t7h")
-    euro = requests.request("GET","https://api.fastforex.io/fetch-one?from=EUR&to=TRY&api_key=c24eed3a02-0f52d1575e-r31t7h")
-    sterlin = requests.request("GET","https://api.fastforex.io/fetch-one?from=GBP&to=TRY&api_key=c24eed3a02-0f52d1575e-r31t7h")
+    
+    
+    
     for mention in json_response["data"]:
         if mention["text"] == '@cagrkutyok !dolar':
+            dlr = requests.request("GET","https://api.fastforex.io/fetch-one?from=USD&to=TRY&api_key=c24eed3a02-0f52d1575e-r31t7h")
             clean = dlr.content.decode("utf-8")
             clean = ast.literal_eval(clean)
             if ids.get(mention["id"])== None:
                 client.create_tweet(in_reply_to_tweet_id=mention["id"],text=str(clean["result"]["TRY"]))
             ids[mention["id"]] = 1
         elif mention["text"] == '@cagrkutyok !euro':
+            euro = requests.request("GET","https://api.fastforex.io/fetch-one?from=EUR&to=TRY&api_key=c24eed3a02-0f52d1575e-r31t7h")
             clean = euro.content.decode("utf-8")
             clean = ast.literal_eval(clean)
             if ids.get(mention["id"])== None:
                 client.create_tweet(in_reply_to_tweet_id=mention["id"],text=str(clean["result"]["TRY"]))
             ids[mention["id"]] = 1
         elif mention["text"] == '@cagrkutyok !sterlin':
+            sterlin = requests.request("GET","https://api.fastforex.io/fetch-one?from=GBP&to=TRY&api_key=c24eed3a02-0f52d1575e-r31t7h")
             clean = sterlin.content.decode("utf-8")
             clean = ast.literal_eval(clean)
             if ids.get(mention["id"])== None:
@@ -80,8 +84,8 @@ def main():
 
 
 if __name__ == "__main__":
-    
-    main()
+    while True:
+        main()
 
 
 #user_id = 1298987475839250435
