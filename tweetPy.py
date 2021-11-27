@@ -1,4 +1,4 @@
-import time
+
 import requests
 import tweepy
 import ast
@@ -52,7 +52,6 @@ def connect_to_endpoint(url, params):
 
 
 def main():
-    time.sleep(10)
     url = create_url()
     params = get_params()
     json_response = connect_to_endpoint(url, params)
@@ -81,8 +80,8 @@ def main():
 
 
 if __name__ == "__main__":
-     while True:
-        main()
+    
+    main()
 
 
 #user_id = 1298987475839250435
