@@ -2,13 +2,13 @@ import time
 import requests
 import tweepy
 import ast
-consumer_key= "aFEv6ClBF91Et5dC8o0kXbjBG"
-consumer_secret ="992gtxhaxwlJkFLnupCgjtuA3o3zI3zUV93xnHSZZL5wPhh4Wa"
-access_token = "1298987475839250435-m5rpvbgsMJXHFRx7oJOCcD0WzZPSSV"
-access_token_secret = "5D2mRai1tejV02jQS8Wy4MxDx2hrFZC1JTW6C3Zj8izYX"
+consumer_key= "I1rLPe2WTnlRzd0qgk9VtdSys"
+consumer_secret ="nL8mydCBBWuZf4I0BE2xPxU1WZJfntpcSybjmSNGXyrjqeMp5L"
+access_token = "1298987475839250435-p96bODsu1lLaBhqzFSbg128RQvmuL0"
+access_token_secret = "wTwg6YQBwYPq8G1wtwQYoK30qZul8yk7cqJ46yFnVOuqx"
 
 
-bearer_token = "AAAAAAAAAAAAAAAAAAAAAGqOWAEAAAAAcX0EjsLD3%2FW6dJ8jrCJxQMDgJWk%3DIQ3ljjLkxRAqyio0YNHouzPVtJneD02poodLBqxTD9yfNSlG0x"
+bearer_token = "AAAAAAAAAAAAAAAAAAAAAGqOWAEAAAAAcXIGafBWn%2F86JEXnVmpqfe0H%2B%2FE%3Dx2MJJ6brj0LAIpxIgn32nY1o8HM9VhddBck0VMRGmFUSWqGUS7"
 client = tweepy.Client(consumer_key=consumer_key,consumer_secret=consumer_secret,access_token=access_token,access_token_secret=access_token_secret)
 
 ids ={}
