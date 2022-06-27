@@ -2,19 +2,19 @@ import time
 import requests
 import tweepy
 import ast
-consumer_key= "I1rLPe2WTnlRzd0qgk9VtdSys"
-consumer_secret ="nL8mydCBBWuZf4I0BE2xPxU1WZJfntpcSybjmSNGXyrjqeMp5L"
-access_token = "1298987475839250435-p96bODsu1lLaBhqzFSbg128RQvmuL0"
-access_token_secret = "wTwg6YQBwYPq8G1wtwQYoK30qZul8yk7cqJ46yFnVOuqx"
+consumer_key= "xxxxxxxxxxxx"
+consumer_secret ="xxxxxxxxxxxxxxxxxxx"
+access_token = "xxxxxxxxxxx-xxxxxxxxxxxxxxxx"
+access_token_secret = "xxxxxxxxxxxxxxxxxxxxxxxxx"
 
 
-bearer_token = "AAAAAAAAAAAAAAAAAAAAAGqOWAEAAAAAcXIGafBWn%2F86JEXnVmpqfe0H%2B%2FE%3Dx2MJJ6brj0LAIpxIgn32nY1o8HM9VhddBck0VMRGmFUSWqGUS7"
+bearer_token = "xxxxxxxxxxxxxx%xxxxxxxxxxxxxx%xxxxxxxxxx%xxxxxxxxx%xxxxxxxxxxx"
 client = tweepy.Client(consumer_key=consumer_key,consumer_secret=consumer_secret,access_token=access_token,access_token_secret=access_token_secret)
 
 ids ={}
 def create_url():
 
-    user_id = 1298987475839250435
+    user_id = xxxxxxxxxxxxxxxxxxx
     return "https://api.twitter.com/2/users/{}/mentions".format(user_id)
 
 
@@ -60,22 +60,22 @@ def main():
     
     
     for mention in json_response["data"]:
-        if mention["text"] == '@cagrkutyok !dolar':
-            dlr = requests.request("GET","https://api.fastforex.io/fetch-one?from=USD&to=TRY&api_key=c24eed3a02-0f52d1575e-r31t7h")
+        if mention["text"] == '@xxxx !dolar':
+            dlr = requests.request("GET","https://api.fastforex.io/fetch-one?from=USD&to=TRY&api_key=xxxxxxxx-xxxxxx-xxxxxx")
             clean = dlr.content.decode("utf-8")
             clean = ast.literal_eval(clean)
             if ids.get(mention["id"])== None:
                 client.create_tweet(in_reply_to_tweet_id=mention["id"],text=str(clean["result"]["TRY"]))
             ids[mention["id"]] = 1
-        elif mention["text"] == '@cagrkutyok !euro':
-            euro = requests.request("GET","https://api.fastforex.io/fetch-one?from=EUR&to=TRY&api_key=c24eed3a02-0f52d1575e-r31t7h")
+        elif mention["text"] == '@xxxxxxxx !euro':
+            euro = requests.request("GET","https://api.fastforex.io/fetch-one?from=EUR&to=TRY&api_key=xxxxxxx-xxxxxx-xxxxx")
             clean = euro.content.decode("utf-8")
             clean = ast.literal_eval(clean)
             if ids.get(mention["id"])== None:
                 client.create_tweet(in_reply_to_tweet_id=mention["id"],text=str(clean["result"]["TRY"]))
             ids[mention["id"]] = 1
-        elif mention["text"] == '@cagrkutyok !sterlin':
-            sterlin = requests.request("GET","https://api.fastforex.io/fetch-one?from=GBP&to=TRY&api_key=c24eed3a02-0f52d1575e-r31t7h")
+        elif mention["text"] == '@xxxxxxxx !sterlin':
+            sterlin = requests.request("GET","https://api.fastforex.io/fetch-one?from=GBP&to=TRY&api_key=xxxxx-xxxxx-xxxx")
             clean = sterlin.content.decode("utf-8")
             clean = ast.literal_eval(clean)
             if ids.get(mention["id"])== None:
@@ -88,4 +88,4 @@ if __name__ == "__main__":
         main()
 
 
-#user_id = 1298987475839250435
+#user_id = xxxxxxxxxxxxx
